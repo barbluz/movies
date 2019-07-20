@@ -1,0 +1,28 @@
+.Container {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+input {
+  background-color: #ebebeb;
+  padding: 1em;
+  border-radius: 2em;
+  width: 80%;
+  margin: 2em 0;
+  color: #84aac2;
+}
+
+label {
+  position: relative;
+  top: -4em;
+  left: 1em;
+  display: block;
+  transition: 0.2s ease all;
+  color: #84aac2;
+  width: 80%;
+}
+
+label:active, input:focus ~ label, input:valid ~ label  {
+  top: -7em;
+}
