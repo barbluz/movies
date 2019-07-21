@@ -6,3 +6,10 @@ header {
   text-align: center;
   padding: .7em;
 }
+
+@media screen and (max-width: 600px) {
+  header {
+    font-size: 2em;
+    padding: .5em;
+  }
+}
