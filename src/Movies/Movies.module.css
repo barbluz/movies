@@ -1,0 +1,19 @@
+.Container {
+  width: 60%;
+}
+
+@media screen and (max-width: 1000px) {
+  .Container {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .Container {
+    width: 100%;
+    justify-content: center;
+  }
+}

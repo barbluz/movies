@@ -1,0 +1,45 @@
+.Card {
+  display: flex;
+  flex-direction: row;
+  height: 255px;
+  background-color: #ebebeb;
+  margin: 2em 0;
+}
+
+h3 {
+  background-color: #116193;
+  color: #00e8e4;
+  font-family: 'Abel';
+  padding: .5em;
+  font-size: 1.5em;
+}
+
+.Info {
+  overflow-y: scroll;
+}
+
+p {
+  padding: 1em;
+}
+
+.Description {
+  color: #555555;
+}
+
+.Release {
+  color: #9b9b9b;
+}
+
+@media screen and (max-width: 1000px) {
+  .Card {
+    flex-direction: column;
+    height: auto;
+    width: 45%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .Card {
+    width: 80%;
+  }
+}
