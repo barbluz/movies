@@ -1,7 +1,7 @@
 .Card {
   display: flex;
   flex-direction: row;
-  height: 255px;
+  height: 260px;
   background-color: #ebebeb;
   margin: 2em 0;
 }
@@ -14,12 +14,9 @@ h3 {
   font-size: 1.5em;
 }
 
-.Info {
-  overflow-y: scroll;
-}
-
 p {
   padding: 1em;
+  font-size: .9em;
 }
 
 .Description {
@@ -35,6 +32,11 @@ p {
     flex-direction: column;
     height: auto;
     width: 45%;
+  }
+
+  img {
+    height: auto;
+    width: 100%;
   }
 }
 
