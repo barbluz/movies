@@ -6,7 +6,7 @@
   margin: 2em 0;
 }
 
-h3 {
+.CardTitle {
   background-color: #116193;
   color: #00e8e4;
   font-family: 'Abel';
@@ -14,7 +14,7 @@ h3 {
   font-size: 1.5em;
 }
 
-p {
+.Release, .Description {
   padding: 1em;
   font-size: .9em;
 }
