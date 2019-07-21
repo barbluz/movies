@@ -10,7 +10,7 @@ h3 {
   background-color: #116193;
   color: #00e8e4;
   font-family: 'Abel';
-  padding: .5em;
+  padding: .5em .5em .5em 3.5em;
   font-size: 1.5em;
 }
 
@@ -25,6 +25,7 @@ p {
 
 .Release {
   color: #9b9b9b;
+  padding-left: 6em;
 }
 
 @media screen and (max-width: 1000px) {

@@ -1,0 +1,28 @@
+.Container {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4em;
+  height: 4em;
+  background-color: #116193;
+  border-radius: 10em;
+  position: absolute;
+  margin: -2em 0.5em;
+  padding: 1em;
+}
+
+.Score {
+  text-align: center;
+  font-size: 1.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5em;
+  height: 2.5em;
+  border: solid 3px #00e8e4;
+  color: #00e8e4;
+  font-family: 'Abel';
+  border-radius: 10em;
+  position: absolute;
+}
