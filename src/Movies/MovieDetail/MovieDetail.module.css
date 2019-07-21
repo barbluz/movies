@@ -1,0 +1,161 @@
+.Card {
+  width: 90%;
+  margin: 10vh auto;
+  padding: 0 0em 0 2em;
+  font-family: 'Lato';
+  color: #555555;
+  font-size: 1.2em;
+  min-width: 320px;
+  max-width: 1500px;
+}
+
+.CardTitle {
+  font-family: 'Abel';
+  color: #116193;
+  background-color: #e6e6e6;
+  padding: .3em 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.5em;
+}
+
+.CardTitle > h1 {
+  font-size: 1.2em;
+}
+
+.CardTitle > p {
+  font-size: .7em;
+  color: gray;
+}
+
+.Title {
+  font-size: 1.5em;
+  font-family: 'Abel';
+  color: #116193;
+}
+
+hr {
+  color: #79edeb;
+  border-top: solid 2px;
+  padding: 2px 0 1em 0;
+}
+
+.Title:not(:first-child) {
+  margin-top: 2em;
+}
+
+.Info {
+  display: flex;
+  background-color: #f2f2f2;
+  font-size: .9em;
+}
+
+.Details {
+  margin-right: 2em;
+  padding: 5vh;
+}
+
+.AdditionalInfo {
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  margin-top: 1em;
+}
+
+.Item > h3 {
+  font-family: 'Abel';
+  color: #116193;
+  font-size: 1.3em;
+}
+
+.Poster > img {
+  max-height: 80vh;
+}
+
+.Tags {
+  padding: 2em 0;
+}
+
+.Score {
+  float: right;
+}
+
+@media screen and (max-width: 1590px) {
+  .Details {
+    width: 70%;
+  }
+
+  .Poster > img {
+    width: 100%;
+  }
+
+  .AdditionalInfo {
+    flex-wrap: wrap;
+  }
+
+  .Item {
+    margin: .5em;
+    width: 30%;
+  }
+
+  .Item > p {
+    font-size: .9em;
+  }
+
+  .Score {
+    float: right;
+    position: relative;
+    margin-top: -5em;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .Card {
+    padding: 0 1em;
+  }
+
+  .Info {
+    flex-direction: column-reverse;
+  }
+
+  .Details {
+    width: 100%;
+  }
+
+  .Poster > img {
+    max-height: unset;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .CardTitle {
+    padding: .3em 0.5em;
+    font-size: 1.3em;
+  }
+
+  .AdditionalInfo {
+    width: 100%;
+    text-align: left;
+  }
+
+  .Item {
+    margin: 1em 0 0 0;
+    width: 50%;
+  }
+
+  .Score {
+    margin-top: 0;
+  }
+
+  .Item > p {
+    font-size: .8em;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .CardTitle > h1 {
+    font-size: 1.1em;
+  }
+
+}
