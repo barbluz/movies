@@ -6,23 +6,42 @@
 
 input {
   background-color: #ebebeb;
-  padding: 1em;
+  padding: 1em 2em;
   border-radius: 2em;
-  width: 80%;
-  margin: 2em 0;
+  width: 60%;
+  margin: 3em 0 0;
   color: #84aac2;
 }
 
 label {
   position: relative;
-  top: -4em;
-  left: 1em;
+  top: -2em;
+  left: 2em;
   display: block;
   transition: 0.2s ease all;
   color: #84aac2;
-  width: 80%;
+  width: 60%;
+}
+
+label:after {
+  content: 'por nome, ano ou gênero';
 }
 
 label:active, input:focus ~ label, input:valid ~ label  {
-  top: -7em;
+  top: -5em;
 }
+
+@media screen and (max-width: 1000px) {
+  input {
+    width: 80%;
+  }
+
+  label {
+    left: 0;
+  }
+
+  label:after {
+    content: '';
+  }
+}
+
