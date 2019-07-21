@@ -28,6 +28,15 @@ p {
   padding-left: 6em;
 }
 
+.Score {
+  position: absolute;
+  margin: -2em 0.5em;
+}
+
+.Tags {
+  padding: 1em;
+}
+
 @media screen and (max-width: 1000px) {
   .Card {
     flex-direction: column;
