@@ -1,0 +1,15 @@
+.Container {
+  display: flex;
+  width: 100%;
+  padding: 1em;
+}
+
+.Item {
+  padding: 1em;
+  background-color: green;
+  margin-right: 1em;
+  border-radius: 12em;
+  width: 3em;
+  height: 3em;
+  text-align: center;
+}

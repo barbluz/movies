@@ -13,7 +13,6 @@ const layout = (props) => (
         <Route path='/movie/:id' exact component={MovieDetail} />
         <Route path='/genre/:id' exact component={Genre} />
     </main>
-    <div>Pagination</div>
   </BrowserRouter>
 );
 
