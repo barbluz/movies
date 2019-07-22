@@ -16,6 +16,9 @@
 }
 
 .Poster {
+  background-color: #b5b5b5;
+  min-width: 350px;
+  min-height: 500px;
 }
 
 .Release, .Description {
