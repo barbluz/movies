@@ -2,11 +2,14 @@ import React, { Component }from 'react';
 import Tag from './Tag/Tag';
 import classes from './Tags.module.css';
 import API from '../Api';
+import { Link } from 'react-router-dom';
 
 class Tags extends Component {
   constructor(props) {
     super(props);
 
+    console.log('[Tags.js] constructor')
+    console.log(this.props)
     this.state = {
       allGenres: [],
       genreIds: this.props.genreIds,
@@ -14,7 +17,6 @@ class Tags extends Component {
       genreList: this.props.genres
     }
   }
-
 
   componentDidMount() {
     this.getGenres();
@@ -35,11 +37,10 @@ class Tags extends Component {
 
       if(this.props.genreIds) {
         let genreNames = this.state.genreIds.map(genre => {
-          return this.state.allGenres.find( element => (element.id === genre)? element.name : null)
+          return this.state.allGenres.find( element => (element.id === genre)? element : null)
         });
 
-        let names = genreNames.map( element => (element.name))
-        this.setState({genres: names})
+        this.setState({genreList: genreNames})
       }
 
     });
@@ -48,13 +49,11 @@ class Tags extends Component {
   render() {
     let tags = null;
 
-    if(this.state.genreIds) {
-      tags = this.state.genres.map((genre, index) => {
-        return <Tag genre={genre} key={index} />
-        });
-    } else if(this.state.genreList) {
+    if(this.state.genreList) {
       tags = this.state.genreList.map((genre, index) => {
-        return <Tag genre={genre.name} key={genre.id} />
+        return <Link to={'/genre/' + genre.id } key={genre.id}>
+                <Tag genre={genre.name}/>
+              </Link>
         });
     }
 

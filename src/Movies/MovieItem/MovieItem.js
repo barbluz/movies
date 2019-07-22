@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import classes from './MovieItem.module.css';
 import Tags from '../../Tags/Tags';
 import Score from '../Score/Score';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class MovieItem extends Component {
 
