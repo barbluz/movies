@@ -49,11 +49,13 @@ hr {
   display: flex;
   background-color: #f2f2f2;
   font-size: .9em;
+  justify-content: space-between;
 }
 
 .Details {
   margin-right: 2em;
   padding: 5vh;
+  min-width: 50%;
 }
 
 .AdditionalInfo {
