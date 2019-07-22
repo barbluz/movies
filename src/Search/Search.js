@@ -28,7 +28,6 @@ class Search extends Component {
     }).then( response => {
       let movies = response.data.results;
       this.setState({movies: movies, totalResults: movies.length});
-      console.log(this.state)
     });
   }
 
@@ -45,8 +44,8 @@ class Search extends Component {
           query: query
         }
       }).then( response => {
-        let movies = response.data.results.slice(0, 5);
-        this.setState({movies: movies});
+      let movies = response.data.results;
+      this.setState({movies: movies, totalResults: movies.length});
       });
     }
   }
