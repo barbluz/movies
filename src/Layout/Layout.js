@@ -2,17 +2,17 @@ import React from 'react';
 import classes from './Layout.module.css';
 import Search from '../Search/Search';
 import MovieDetail from '../Movies/MovieDetail/MovieDetail';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 const layout = (props) => (
-  <div>
-    <header>Movies</header>
+  <BrowserRouter>
+    <header><Link to="/"> Movies</Link></header>
     <main>
-        <MovieDetail />
-        <Search />
-      {props.children}
+        <Route path="/" exact component={Search} />
+        <Route path='/movie/:id' exact component={MovieDetail} />
     </main>
     <div>Pagination</div>
-  </div>
+  </BrowserRouter>
 );
 
 export default layout;

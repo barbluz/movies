@@ -12,6 +12,10 @@
   font-family: 'Abel';
   padding: .5em .5em .5em 3.5em;
   font-size: 1.5em;
+  cursor: pointer;
+}
+
+.Poster {
 }
 
 .Release, .Description {

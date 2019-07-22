@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import classes from './MovieItem.module.css';
 import Tags from '../../Tags/Tags';
 import Score from '../Score/Score';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 class MovieItem extends Component {
 
@@ -14,7 +15,9 @@ class MovieItem extends Component {
           className={classes.Poster}
         />
         <div className={classes.Info}>
-          <h3 className={classes.CardTitle}>{this.props.title}</h3>
+          <Link to={'/movie/' + this.props.id} params={this.props}>
+            <h3 className={classes.CardTitle}>{this.props.title}</h3>
+          </Link>
           <div className={classes.Score}>
             <Score value={this.props.voteAverage}/>
           </div>
