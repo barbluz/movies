@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Movies from '../Movies/Movies';
 import classes from './Genre.module.css';
 import API from '../Api';
+import Pagination from '../Pagination/Pagination'
 
 class Genre extends Component {
 
@@ -10,7 +11,10 @@ class Genre extends Component {
 
     this.state = {
       movies: [],
-      genreId: this.props.match.params.id
+      genreId: this.props.match.params.id,
+      totalResults: 0,
+      currentPage: 1,
+      resultsPerPage: 5
     }
   }
 
@@ -29,17 +33,32 @@ class Genre extends Component {
         with_genres: this.state.genreId
       }
     }).then( response => {
-      let movies = response.data.results.slice(0, 5);
-      this.setState({movies: movies});
+      let movies = response.data.results;
+      this.setState({movies: movies, totalResults: movies.length});
     });
   }
 
+  paginate(number) {
+    this.setState({currentPage: number});
+  }
+
   render() {
+    const lastMovieIndex = this.state.currentPage * this.state.resultsPerPage;
+    const firstMovieIndex = lastMovieIndex - this.state.resultsPerPage;
+    const currentMovies = this.state.movies.slice(firstMovieIndex, lastMovieIndex);
+
     return(
       <div className={classes.Container}>
-        <Movies movies={this.state.movies} />
+        <Movies movies={currentMovies} />
+
+        <Pagination
+          resultsPerPage={this.state.resultsPerPage}
+          totalResults={this.state.totalResults}
+          paginate={this.paginate.bind(this)}
+          currentPage={this.state.currentPage}
+        />
       </div>
-      );
+    );
   }
 }
 
