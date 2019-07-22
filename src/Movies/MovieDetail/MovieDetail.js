@@ -2,22 +2,74 @@ import React, { Component } from 'react';
 import classes from './MovieDetail.module.css';
 import Tags from '../../Tags/Tags';
 import Score from '../Score/Score';
+import API from '../../Api';
 
 class MovieDetail extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {id: this.props.match.params.id};
+  }
+
+  state = {
+    id: '',
+    title: '',
+    overview: '',
+    voteAverage: '',
+    releaseDate: '',
+    genreIds: '',
+    posterPath: '',
+    language: '',
+    runtime: '',
+    budget: '',
+    revenue: '',
+    status: '',
+    tags: null
+  }
+
+  componentDidMount() {
+    this.getMovie(this.state.id);
+  }
+
+  getMovie(id) {
+    API.get('/movie/' + id, {
+      params: {
+        api_key: 'a4cab92d173bcd8046c8dbf93bb0661b',
+        language: 'pt-BR',
+      }
+    }).then( response => {
+      let movie = response.data;
+      this.setState({
+        title: movie.title,
+        overview: movie.overview,
+        voteAverage: movie.vote_average,
+        releaseDate: movie.release_date,
+        genreIds: movie.genres,
+        posterPath: movie.poster_path,
+        language: movie.original_language,
+        runtime: movie.runtime,
+        budget: movie.budget,
+        revenue: movie.revenue,
+        status: movie.status
+      })
+
+      this.setState({tags: <Tags genres={this.state.genreIds} /> })
+    });
+  }
+
   render() {
+
     return(
       <div className={classes.Card}>
         <div className={classes.CardTitle}>
-          <h1>Thor: Ragnaruto</h1>
-          <p>25/10/2017</p>
+          <h1>{this.state.title}</h1>
+          <p>{this.state.releaseDate}</p>
         </div>
 
         <div className={classes.Info}>
           <div className={classes.Details}>
             <h2 className={classes.Title}>Sinopse</h2>
             <hr />
-            <p className={classes.Description}> Thor está aprisionado do outro lado do universo, sem seu martelo, e se vê em uma corrida para voltar até Asgard e impedir o Ragnarok, a destruição de seu lar e o fim da civilização asgardiana que está nas mãos de uma nova e poderosa ameaça, a terrível Hela. Mas primeiro ele precisa sobreviver a uma batalha de gladiadores que o coloca contra seu ex-aliado e vingador, o Incrível Hulk.
-            </p>
+            <p className={classes.Description}> {this.state.overview} </p>
 
             <h2 className={classes.Title}>Informações</h2>
             <hr />
@@ -25,27 +77,27 @@ class MovieDetail extends Component {
             <ul className={classes.AdditionalInfo}>
               <li className={classes.Item}>
                 <h3>Situação</h3>
-                <p>Lançado</p>
+                <p>{this.state.status}</p>
               </li>
 
               <li className={classes.Item}>
                 <h3>Idioma</h3>
-                <p>Inglês</p>
+                <p>{this.state.language}</p>
               </li>
 
               <li className={classes.Item}>
                 <h3>Duração</h3>
-                <p>2h10min</p>
+                <p>{this.state.runtime} min</p>
               </li>
 
               <li className={classes.Item}>
                 <h3>Orçamento</h3>
-                <p>$180.000.000,00</p>
+                <p>{'$' + this.state.budget}</p>
               </li>
 
               <li className={classes.Item}>
                 <h3>Receita</h3>
-                <p>$853.977.000,00</p>
+                <p>{'$' + this.state.revenue}</p>
               </li>
 
               <li className={classes.Item}>
@@ -55,17 +107,18 @@ class MovieDetail extends Component {
             </ul>
 
             <div className={classes.Tags}>
-              <Tags />
+              <Tags genres={this.state.genreIds} />
+              {this.state.tags}
             </div>
 
             <div className={classes.Score}>
-              <Score value="75%"/>
+              <Score value={this.state.voteAverage}/>
             </div>
 
           </div>
 
           <div className={classes.Poster}>
-            <img src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/bLpIFiuWF1bKnBqi7LqnJcLHtN.jpg" alt="" />
+            <img src={'https://image.tmdb.org/t/p/w600_and_h900_bestv2/' + this.state.posterPath} alt="" />
           </div>
         </div>
       </div>

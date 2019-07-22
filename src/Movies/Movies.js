@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import classes from './Movies.module.css';
 import MovieItem from './MovieItem/MovieItem';
-import API from '../Api';
 
 class Movies extends Component {
+
   render() {
     let movies = null;
 
@@ -15,7 +15,9 @@ class Movies extends Component {
         releaseDate={movie.release_date}
         genreIds={movie.genre_ids}
         posterPath={movie.poster_path}
-        key={movie.id} />
+        key={movie.id}
+        id={movie.id}
+      />
       })
 
     return(
