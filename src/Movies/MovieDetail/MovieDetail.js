@@ -11,18 +11,18 @@ class MovieDetail extends Component {
   }
 
   state = {
-    id: '',
-    title: '',
-    overview: '',
-    voteAverage: '',
-    releaseDate: '',
-    genreIds: '',
-    posterPath: '',
-    language: '',
-    runtime: '',
-    budget: '',
-    revenue: '',
-    status: '',
+    id: '-',
+    title: '-',
+    overview: '-',
+    voteAverage: '-',
+    releaseDate: '-',
+    genreIds: '-',
+    posterPath: '-',
+    language: '-',
+    runtime: '-',
+    budget: '-',
+    revenue: '-',
+    status: '-',
     tags: null
   }
 
@@ -57,6 +57,8 @@ class MovieDetail extends Component {
   }
 
   render() {
+
+    let profit = this.state.revenue - this.state.budget;
 
     return(
       <div className={classes.Card}>
@@ -102,7 +104,7 @@ class MovieDetail extends Component {
 
               <li className={classes.Item}>
                 <h3>Lucro</h3>
-                <p>$673.977.000,00</p>
+                <p>{'$' + profit }</p>
               </li>
             </ul>
 
