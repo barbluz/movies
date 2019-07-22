@@ -10,13 +10,17 @@ class Tags extends Component {
     this.state = {
       allGenres: [],
       genreIds: this.props.genreIds,
-      genres: []
+      genres: [],
+      genreList: this.props.genres
     }
   }
 
 
   componentDidMount() {
     this.getGenres();
+    if(this.state.genres) {
+      this.setState({genreList: this.props.genres})
+    }
   }
 
   getGenres() {
@@ -29,12 +33,14 @@ class Tags extends Component {
       let genres = response.data.genres;
       this.setState({allGenres: genres});
 
-      let genreNames = this.state.genreIds.map(genre => {
-        return this.state.allGenres.find( element => (element.id === genre)? element.name : null)
-      });
+      if(this.props.genreIds) {
+        let genreNames = this.state.genreIds.map(genre => {
+          return this.state.allGenres.find( element => (element.id === genre)? element.name : null)
+        });
 
-      let names = genreNames.map( element => (element.name))
-      this.setState({genres: names})
+        let names = genreNames.map( element => (element.name))
+        this.setState({genres: names})
+      }
 
     });
   }
@@ -42,9 +48,15 @@ class Tags extends Component {
   render() {
     let tags = null;
 
-    tags = this.state.genres.map((genre, index) => {
-      return <Tag genre={genre} key={index} />
-      });
+    if(this.state.genreIds) {
+      tags = this.state.genres.map((genre, index) => {
+        return <Tag genre={genre} key={index} />
+        });
+    } else if(this.state.genreList) {
+      tags = this.state.genreList.map((genre, index) => {
+        return <Tag genre={genre.name} key={genre.id} />
+        });
+    }
 
     return (
       <div className={classes.Container}>
