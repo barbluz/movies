@@ -5,7 +5,7 @@ class Pagination extends Component {
   render() {
     const pageNumbers = [];
 
-    for(let i = 1; i < Math.ceil(this.props.totalResults / this.props.resultsPerPage); i++) {
+    for(let i = 1; i <= Math.ceil(this.props.totalResults / this.props.resultsPerPage); i++) {
       pageNumbers.push(i);
     }
 
