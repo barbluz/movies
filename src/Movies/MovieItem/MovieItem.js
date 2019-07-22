@@ -11,7 +11,7 @@ class MovieItem extends Component {
       <div className={classes.Card}>
         <img
           src={"https://image.tmdb.org/t/p/w500/" + this.props.posterPath}
-          alt="{this.props.title}"
+          alt={this.props.title}
           className={classes.Poster}
         />
         <div className={classes.Info}>
