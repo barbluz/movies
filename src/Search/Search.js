@@ -61,7 +61,11 @@ class Search extends Component {
 
     return(
       <div className={classes.Container}>
-        <input type="text" required onKeyDown={(event) => this.searchMovies(event) }/>
+        <input
+          type="text"
+          required
+          placeholder="Busque um filme"
+          onKeyDown={(event) => this.searchMovies(event) }/>
         <label> Busque um filme </label>
 
         <Movies movies={currentMovies} />

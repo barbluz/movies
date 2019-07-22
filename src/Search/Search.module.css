@@ -11,24 +11,34 @@ input {
   width: 60%;
   margin: 3em 0 0;
   color: #84aac2;
+  min-width: 280px;
 }
 
 label {
-  position: relative;
-  top: -2em;
-  left: 2em;
+  position: absolute;
+  margin-top: 4em;
+  margin-left: 4em;
   display: block;
   transition: 0.2s ease all;
   color: #84aac2;
   width: 60%;
+  min-width: 280px;
+  visibility: hidden;
 }
 
 label:after {
   content: 'por nome, ano ou gênero';
 }
 
-label:active, input:focus ~ label, input:valid ~ label  {
-  top: -5em;
+input:focus::placeholder{
+  transition: 0.2s ease all;
+  color: transparent;
+}
+
+input:focus + label,
+input:valid + label  {
+  margin-top: 1em;
+  visibility: visible;
 }
 
 @media screen and (max-width: 1000px) {
@@ -37,11 +47,10 @@ label:active, input:focus ~ label, input:valid ~ label  {
   }
 
   label {
-    left: 0;
+    left: .5em;
   }
 
   label:after {
     content: '';
   }
 }
-
