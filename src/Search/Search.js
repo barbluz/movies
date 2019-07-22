@@ -28,16 +28,34 @@ class Search extends Component {
     });
   }
 
+  searchMovies(event) {
+    if(event.keyCode === 13) {
+      let query = event.target.value;
+
+      API.get('/search/movie', {
+        params: {
+          api_key: 'a4cab92d173bcd8046c8dbf93bb0661b',
+          language: 'pt-BR',
+          sort_by: 'popularity.desc',
+          include_adult: false,
+          query: query
+        }
+      }).then( response => {
+        let movies = response.data.results.slice(0, 5);
+        this.setState({movies: movies});
+      });
+    }
+  }
 
   render() {
     return(
       <div className={classes.Container}>
-        <input type="text" required />
+        <input type="text" required onKeyDown={(event) => this.searchMovies(event) }/>
         <label> Busque um filme </label>
 
         <Movies movies={this.state.movies} />
       </div>
-    );
+      );
   }
 
 };
