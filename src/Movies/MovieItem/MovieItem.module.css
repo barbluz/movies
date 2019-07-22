@@ -1,9 +1,9 @@
 .Card {
   display: flex;
   flex-direction: row;
-  height: 260px;
   background-color: #ebebeb;
   margin: 2em 0;
+  height: auto;
 }
 
 .CardTitle {
@@ -37,6 +37,10 @@
   padding: 1em;
 }
 
+.Info {
+  width: 100%;
+}
+
 @media screen and (max-width: 1000px) {
   .Card {
     flex-direction: column;
@@ -44,7 +48,7 @@
     width: 45%;
   }
 
-  img {
+  .Poster {
     height: auto;
     width: 100%;
   }

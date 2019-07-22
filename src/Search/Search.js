@@ -1,8 +1,33 @@
 import React, { Component } from 'react';
 import classes from './Search.module.css';
 import Movies from '../Movies/Movies';
+import API from '../Api';
 
 class Search extends Component {
+
+  state = {
+    movies: [],
+  }
+
+  componentDidMount() {
+    this.getMovies();
+  }
+
+  getMovies() {
+    API.get('/discover/movie', {
+      params: {
+        api_key: 'a4cab92d173bcd8046c8dbf93bb0661b',
+        language: 'pt-BR',
+        sort_by: 'popularity.desc',
+        include_adult: false
+      }
+    }).then( response => {
+      let movies = response.data.results.slice(0, 5);
+      console.log(movies)
+      this.setState({movies: movies});
+    });
+  }
+
 
   render() {
     return(
@@ -10,7 +35,7 @@ class Search extends Component {
         <input type="text" required />
         <label> Busque um filme </label>
 
-        <Movies />
+        <Movies movies={this.state.movies} />
       </div>
     );
   }
