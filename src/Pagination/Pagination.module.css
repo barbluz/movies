@@ -2,14 +2,30 @@
   display: flex;
   width: 100%;
   padding: 1em;
+  font-family: 'Abel';
+  font-size: 1.2em;
 }
 
 .Item {
   padding: 1em;
-  background-color: green;
-  margin-right: 1em;
+  color: #116193;
   border-radius: 12em;
   width: 3em;
   height: 3em;
   text-align: center;
+  cursor: pointer;
+}
+
+.Active {
+  background-color: #116193;
+  cursor: pointer;
+  color: white;
+  border: 3px solid #00e8e4;
+  width: 3em;
+  height: 3em;
+  margin: 0 1em 0 0;
+  border-radius: 10em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

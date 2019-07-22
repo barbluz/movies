@@ -13,7 +13,7 @@ class Pagination extends Component {
       <nav>
         <ul className={classes.Container}>
           {pageNumbers.map(number => (
-          <li className={classes.Item}
+          <li className={(this.props.currentPage === number)? (classes.Item, classes.Active) : classes.Item}
             key={number}
             onClick={() => this.props.paginate(number)}>
             {number}

@@ -70,6 +70,7 @@ class Search extends Component {
                 resultsPerPage={this.state.resultsPerPage}
                 totalResults={this.state.totalResults}
                 paginate={this.paginate.bind(this)}
+                currentPage={this.state.currentPage}
               />
       </div>
       );
