@@ -8,8 +8,6 @@ class Tags extends Component {
   constructor(props) {
     super(props);
 
-    console.log('[Tags.js] constructor')
-    console.log(this.props)
     this.state = {
       allGenres: [],
       genreIds: this.props.genreIds,

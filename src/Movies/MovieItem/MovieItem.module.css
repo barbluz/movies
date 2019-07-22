@@ -4,6 +4,7 @@
   background-color: #ebebeb;
   margin: 2em 0;
   height: auto;
+  min-width: 280px;
 }
 
 .CardTitle {
@@ -58,6 +59,8 @@
   .Poster {
     height: auto;
     width: 100%;
+    min-height: unset;
+    min-width: unset;
   }
 }
 
@@ -65,4 +68,5 @@
   .Card {
     width: 80%;
   }
+
 }
