@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import classes from './MovieDetail.module.css';
 import Tags from '../../Tags/Tags';
 import Score from '../Score/Score';
+import NumberFormat from 'react-number-format';
 import API from '../../Api';
 
 class MovieDetail extends Component {
@@ -94,17 +95,17 @@ class MovieDetail extends Component {
 
               <li className={classes.Item}>
                 <h3>Orçamento</h3>
-                <p>{'$' + this.state.budget}</p>
+                <NumberFormat value={this.state.budget} displayType={'text'} thousandSeparator={true} prefix={'$'} />
               </li>
 
               <li className={classes.Item}>
                 <h3>Receita</h3>
-                <p>{'$' + this.state.revenue}</p>
+                <NumberFormat value={this.state.revenue} displayType={'text'} thousandSeparator={true} prefix={'$'} />
               </li>
 
               <li className={classes.Item}>
                 <h3>Lucro</h3>
-                <p>{'$' + profit }</p>
+                <NumberFormat value={profit} displayType={'text'} thousandSeparator={true} prefix={'$'} />
               </li>
             </ul>
 
