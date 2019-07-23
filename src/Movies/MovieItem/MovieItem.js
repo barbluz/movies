@@ -3,6 +3,7 @@ import classes from './MovieItem.module.css';
 import Tags from '../../Tags/Tags';
 import Score from '../Score/Score';
 import { Link } from 'react-router-dom';
+import Moment from 'react-moment';
 
 class MovieItem extends Component {
 
@@ -10,7 +11,7 @@ class MovieItem extends Component {
     return (
       <div className={classes.Card}>
         <img
-          src={"https://image.tmdb.org/t/p/w500/" + this.props.posterPath}
+          src={"https://image.tmdb.org/t/p/w500" + this.props.posterPath}
           alt={this.props.title}
           className={classes.Poster}
         />
@@ -21,7 +22,11 @@ class MovieItem extends Component {
           <div className={classes.Score}>
             <Score value={this.props.voteAverage}/>
           </div>
-          <p className={classes.Release}>{this.props.releaseDate}</p>
+          <p className={classes.Release}>
+            <Moment format="DD/MM/YYYY">
+              {this.props.releaseDate}
+            </Moment>
+          </p>
           <p className={classes.Description}> {this.props.overview}
           </p>
 

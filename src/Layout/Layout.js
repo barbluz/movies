@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './Layout.module.css';
+import './Layout.module.css';
 import Search from '../Search/Search';
 import Genre from '../Genre/Genre';
 import MovieDetail from '../Movies/MovieDetail/MovieDetail';

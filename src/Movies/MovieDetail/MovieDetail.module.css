@@ -101,7 +101,7 @@ hr {
     width: 30%;
   }
 
-  .Item > p {
+  .Item:not(h3) {
     font-size: .9em;
   }
 
@@ -150,7 +150,7 @@ hr {
     margin-top: 0;
   }
 
-  .Item > p {
+  .Item:not(h3) {
     font-size: .8em;
   }
 }
