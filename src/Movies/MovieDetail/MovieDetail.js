@@ -4,6 +4,7 @@ import Tags from '../../Tags/Tags';
 import Score from '../Score/Score';
 import NumberFormat from 'react-number-format';
 import API from '../../Api';
+import Moment from 'react-moment';
 
 class MovieDetail extends Component {
   constructor(props) {
@@ -65,7 +66,11 @@ class MovieDetail extends Component {
       <div className={classes.Card}>
         <div className={classes.CardTitle}>
           <h1>{this.state.title}</h1>
-          <p>{this.state.releaseDate}</p>
+          <p>
+            <Moment format="DD/MM/YYYY">
+              {this.state.releaseDate}
+            </Moment>
+            </p>
         </div>
 
         <div className={classes.Info}>
